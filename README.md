@@ -25,6 +25,8 @@
 Edit vss-extension.json to point to your own publisher
 <https://docs.microsoft.com/en-us/azure/devops/extend/develop/add-build-task> is a useful page
 
+> cd ..
+
 > tfx extension create --manifest-globs vss-extension.json
 
 ## Then you can upload to the marketplace and test.
