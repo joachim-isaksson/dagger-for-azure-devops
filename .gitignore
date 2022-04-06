@@ -1,0 +1,10 @@
+.dccache
+node_modules
+dagger-for-azure-devops/src/*.js
+*.tar.gz
+*.zip
+.taskkey
+work
+*.vsix
+.TEMP
+.TOOL_CACHE

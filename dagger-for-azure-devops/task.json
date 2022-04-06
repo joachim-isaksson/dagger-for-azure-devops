@@ -1,0 +1,67 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
+    "id": "ba8e37ec-e95b-4247-99da-a2c23fbb212c",
+    "name": "dagger",
+    "friendlyName": "Dagger for Azure Devops",
+    "description": "Dagger for Azure Devops",
+    "helpMarkDown": "",
+    "category": "Utility",
+    "author": "Joachim Isaksson",
+    "version": {
+        "Major": 0,
+        "Minor": 1,
+        "Patch": 2
+    },
+    "instanceNameFormat": "Dagger Task",
+    "inputs": [
+        {
+            "name": "version",
+            "type": "string",
+            "label": "Dagger version",
+            "defaultValue": "latest",
+            "required": false,
+            "helpMarkDown": "Dagger version to install"
+        },
+        {
+            "name": "args",
+            "type": "string",
+            "label": "Arguments to pass to Dagger",
+            "required": false,
+            "helpMarkDown": "Arguments to pass to Dagger"
+        },
+        {
+            "name": "workdir",
+            "type": "string",
+            "label": "Working directory (below repository root)",
+            "defaultValue": ".",
+            "required": false,
+            "helpMarkDown": "Working directory (below repository root)"
+        },
+        {
+            "name": "installonly",
+            "type": "boolean",
+            "label": "Just install Dagger",
+            "defaultValue": false,
+            "required": false,
+            "helpMarkDown": "Just install Dagger"
+        },
+        {
+            "name": "cleanup",
+            "type": "boolean",
+            "label": "Cleanup Dagger home folder at the end of a job",
+            "defaultValue": true,
+            "required": false,
+            "helpMarkDown": "Cleanup Dagger home folder at the end of a job"
+        }
+    ],
+    "execution": {
+        "Node10": {
+            "target": "dist/index.js"
+        }
+    },
+    "postjobexecution": {
+        "Node10": {
+            "target": "dist/index.js"
+        }
+    }
+}

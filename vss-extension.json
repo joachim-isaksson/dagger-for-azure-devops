@@ -1,0 +1,39 @@
+{
+    "manifestVersion": 1,
+    "id": "dagger-for-azure-devops",
+    "name": "Dagger task for Azure Devops",
+    "version": "0.1.2",
+    "publisher": "zunzet-publishing",
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "description": "Tools for building/releasing with Dagger. Includes one build/release task.",
+    "categories": [
+        "Azure Pipelines"
+    ],
+    "icons": {
+        "default": "images/extension-icon.png"
+    },
+    "files": [
+        {
+            "path": "dagger-for-azure-devops/dist"
+        },
+        {
+            "path": "dagger-for-azure-devops/task.json"
+        }
+    ],
+    "contributions": [
+        {
+            "id": "custom-build-release-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "dagger-for-azure-devops"
+            }
+        }
+    ]
+}
