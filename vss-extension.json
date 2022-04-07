@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "dagger-for-azure-devops",
     "name": "Dagger task for Azure Devops",
-    "version": "0.1.2",
+    "version": "0.1.4",
     "publisher": "zunzet-publishing",
     "targets": [
         {

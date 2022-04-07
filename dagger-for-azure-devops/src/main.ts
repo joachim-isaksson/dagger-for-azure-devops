@@ -1,5 +1,6 @@
 import * as tl from "azure-pipelines-task-lib/task";
 
+import del from "del";
 import fs from "fs";
 import path from "path";
 import os from "os";
@@ -45,9 +46,7 @@ async function cleanup(): Promise<void> {
     return;
   }
   tl.debug(`Removing ${path.join(os.homedir(), ".config", "dagger")}`);
-  fs.rmdirSync(path.join(os.homedir(), ".config", "dagger"), {
-    recursive: true,
-  });
+  await del([path.join(os.homedir(), ".config", "dagger")], { force: true });
 }
 
 if (!stateHelper.IsPost) {
