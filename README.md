@@ -1,6 +1,8 @@
-# How to build
+# Heavily based on https://github.com/dagger/dagger-for-github
 
-## Install node, I'm using node 16.
+## How to build
+
+## Install node, Devops uses Node 10 currently.
 
 > cd dagger-for-azure-devops
 
