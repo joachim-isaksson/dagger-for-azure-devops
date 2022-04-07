@@ -32,3 +32,16 @@ Edit vss-extension.json to point to your own publisher
 > tfx extension create --manifest-globs vss-extension.json
 
 ## Then you can upload to the marketplace and test.
+
+## Sample build file (ubuntu)
+
+    # File: azure-pipelines.yml
+
+    pool:
+        vmImage: 'ubuntu-latest'
+
+    steps:
+      - task: dagger@0
+        inputs:
+          args: 'do build'
+
