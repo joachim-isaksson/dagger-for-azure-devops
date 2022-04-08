@@ -1,10 +1,9 @@
-import tl = require("azure-pipelines-task-lib/task");
-
 import * as os from "os";
 import * as path from "path";
 import * as util from "util";
 import * as http from "@actions/http-client";
-import * as tc from "@actions/tool-cache";
+import * as task from "azure-pipelines-task-lib/task";
+import * as tool from "azure-pipelines-tool-lib/tool";
 
 const s3URL: string = "https://dl.dagger.io/dagger";
 const osPlat: string = os.platform();
@@ -21,27 +20,27 @@ export async function install(version: string): Promise<string> {
     getFilename(version)
   );
 
-  tl.debug(`Downloading ${downloadUrl}`);
-  const downloadPath: string = await tc.downloadTool(downloadUrl);
-  tl.debug(`Downloaded to ${downloadPath}`);
+  task.debug(`Downloading ${downloadUrl}`);
+  const downloadPath: string = await tool.downloadTool(downloadUrl);
+  task.debug(`Downloaded to ${downloadPath}`);
 
-  tl.debug("Extracting Dagger");
+  task.debug("Extracting Dagger");
   let extPath: string;
   if (osPlat == "win32") {
-    extPath = await tc.extractZip(downloadPath);
+    extPath = await tool.extractZip(downloadPath);
   } else {
-    extPath = await tc.extractTar(downloadPath);
+    extPath = await tool.extractTar(downloadPath);
   }
-  tl.debug(`Extracted to ${extPath}`);
+  task.debug(`Extracted to ${extPath}`);
 
-  const cachePath: string = await tc.cacheDir(extPath, "dagger", version);
-  tl.debug(`Cached to ${cachePath}`);
+  const cachePath: string = await tool.cacheDir(extPath, "dagger", version);
+  task.debug(`Cached to ${cachePath}`);
 
   const exePath: string = path.join(
     cachePath,
     osPlat == "win32" ? "dagger.exe" : "dagger"
   );
-  tl.debug(`Exe path is ${exePath}`);
+  task.debug(`Exe path is ${exePath}`);
 
   return path.join(cachePath, osPlat == "win32" ? "dagger.exe" : "dagger");
 }
