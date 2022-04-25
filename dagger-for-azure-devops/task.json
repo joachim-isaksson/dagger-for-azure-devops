@@ -2,15 +2,15 @@
     "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
     "id": "ba8e37ec-e95b-4247-99da-a2c23fbb212c",
     "name": "dagger",
-    "friendlyName": "Dagger for Azure Devops",
-    "description": "Dagger for Azure Devops",
+    "friendlyName": "Dagger task for Azure Devops (unofficial)",
+    "description": "Dagger task for Azure Devops (unofficial)",
     "helpMarkDown": "",
     "category": "Utility",
     "author": "Joachim Isaksson",
     "version": {
         "Major": 0,
         "Minor": 1,
-        "Patch": 4
+        "Patch": 6
     },
     "instanceNameFormat": "Dagger Task",
     "inputs": [
